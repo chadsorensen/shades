@@ -1,0 +1,107 @@
+/* ============================================ *
+ * MIXINS
+ * ============================================ */
+
+// Font Smoothing
+@mixin antialias {
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+// Fill all space, parent container should be position relative
+@mixin cover() {
+  display: block;
+  @include size(100%);
+  @include position(absolute, 0 0 0 0);
+}
+
+// Convert Pixel Value to viewport width
+@function px2vw($px, $width: 1440) {
+  @return ($px / $width)*100+vw;
+}
+
+// @include fluid-type(font-size, $mobile, $desktop, 16px, 20px);
+@mixin fluid-type($properties, $min-vw, $max-vw, $min-value, $max-value) {
+  & {
+    @each $property in $properties {
+      #{$property}: $min-value;
+    }
+
+    @media screen and (min-width: $min-vw) {
+      @each $property in $properties {
+        #{$property}: calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+      }
+    }
+
+    @media screen and (min-width: $max-vw) {
+      @each $property in $properties {
+        #{$property}: $max-value;
+      }
+    }
+  }
+}
+
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+
+// Opacity Mixin
+@mixin opacity($value: 0.5) {
+  opacity: $value;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=” $value * 100 “)";
+  filter: alpha(opacity= $value * 100 );
+  zoom: 1;
+}
+
+// Kill Flicker 
+@mixin killflicker {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+// Kill ios Safari Defaults 
+@mixin killios {
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+// Breakpoint
+$mq-support: true !default;
+$mq-fixed-value: 1024px !default;
+@mixin bp($feature, $value) {
+  $media: only screen;
+  @if $mq-support == true {
+    @media #{$media} and ($feature: $value) {
+      @content;
+    }
+  } @else {
+    @if $feature == 'min-width' {
+      @if $value <= $mq-fixed-value {
+        @content;
+      }
+    } @else if $feature == 'max-width' {
+      @if $value >= $mq-fixed-value {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin border-radius($radius: $border-radius) {
+    @if $enable-rounded {
+        border-radius: $radius;
+    }
+}
+
+// Button sizes
+@mixin button-size($padding-y, $padding-x, $font-size, $border-radius) {
+    padding: $padding-y $padding-x;
+    font-size: $font-size;
+    @include border-radius($border-radius);
+}

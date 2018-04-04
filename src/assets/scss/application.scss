@@ -1,0 +1,33 @@
+/* ============================================ *
+ * Name: Shades
+ * Category: Vue Boilerplate
+ * Technologies: HTML, CSS, JS,SCSS
+ * Version: 1.0.0
+ * Author: Chad Sorensen
+ * Date: 4/20/2018
+ * ============================================ */
+
+// 3rd Party Libraries
+@import "lib/bourbon/bourbon";
+@import "includes/reset";
+
+// Mixins
+@import "includes/mixins";
+
+// Variables
+@import "includes/variables";
+
+// Fonts
+@import "includes/fonts";
+@import "includes/typography";
+@import "includes/material";
+
+// Helpers
+@import "includes/helpers";
+@import "includes/easing";
+
+//Includes
+@import "includes/navigation";
+
+// Pages
+@import "pages/homepage";

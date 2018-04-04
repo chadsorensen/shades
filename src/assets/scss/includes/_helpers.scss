@@ -1,0 +1,49 @@
+/* ============================================ *
+ * HELPERS
+ * ============================================ */
+.cover {
+  @include cover;
+  outline: none;
+}
+
+a.cover {
+  cursor: pointer;
+}
+
+.content-container {
+  padding: $content-padding;
+}
+
+.mobile-only {
+  display: none;
+}
+@include bp(max-width, $tablet) {
+  .mobile-only {
+    display: block;
+  }
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-right {
+  text-align: right;
+}
+
+#loader {
+  @include display(flex);
+  @include justify-content(center);
+  @include align-items(center);
+  @include position(fixed, 0 0 0 0);
+  @include size(100vw 100vh);
+  background: rgba(0,0,0,.5);
+  pointer-events: none;
+  z-index: -1;
+  visibility: hidden;
+  opacity: 0;
+}
