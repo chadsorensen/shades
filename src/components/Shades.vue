@@ -1,7 +1,11 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
+    <md-empty-state
+      :md-icon="logo"
+      md-label="Create your first project"
+      md-description="Creating project, you'll be able to upload your design and collaborate with people.">
+      <md-button class="md-primary md-raised">Create first project</md-button>
+    </md-empty-state>
     <ul>
       <li>
         <a
@@ -84,10 +88,12 @@
 </template>
 
 <script>
+const logo = require('../assets/icons/logo.svg');
 export default {
   name: 'HelloWorld',
   data () {
     return {
+      logo,
       msg: 'Welcome to Your Vue.js App'
     }
   }

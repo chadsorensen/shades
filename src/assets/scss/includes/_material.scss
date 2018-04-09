@@ -4,7 +4,15 @@
 
 @import "~vue-material/dist/theme/engine"; // Import the theme engine
 
-
+@import "~vue-material/dist/components/MdTabs/theme"; // Apply the Button theme
 @import "~vue-material/dist/components/MdButton/theme"; // Apply the Button theme
 @import "~vue-material/dist/components/MdField/theme"; // Apply the Button theme
 @import "~vue-material/dist/components/MdIcon/theme"; // Apply the Icon theme
+@import "~vue-material/dist/components/MdEmptyState/theme"; // Apply the Icon theme
+@import "~vue-material/dist/components/MdList/theme"; // Apply the Icon theme
+@import "~vue-material/dist/components/MdSubheader/theme"; // Apply the Icon theme
+
+.md-list .md-svg-loader svg {
+  width: initial;
+  height: initial;
+}

@@ -7,3 +7,10 @@ body {
 a,p,span,h1,h2,h3,h4,h5,h6,address,legend,input,textarea,button {
   @include antialias();
 }
+
+a,
+a:visited,
+a:active,
+a:focus {
+  color: inherit;
+}
