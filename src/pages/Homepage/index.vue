@@ -25,9 +25,9 @@
 </template>
 
 <script>
-const vue = require('../../assets/icons/vue.svg');
-const awesome = require('../../assets/icons/awesome.svg');
-const logo = require('../../assets/icons/logo.svg');
+const vue = require('../../assets/icon/vue.svg');
+const awesome = require('../../assets/icon/awesome.svg');
+const logo = require('../../assets/icon/logo.svg');
 export default {
   name: 'Homepage',
   data () {

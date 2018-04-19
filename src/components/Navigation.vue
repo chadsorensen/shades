@@ -9,7 +9,7 @@
 </template>
 
 <script>
-  const logo = require('../assets/icons/logo.svg');
+  const logo = require('../assets/icon/logo.svg');
   export default {
     data () {
       return {
