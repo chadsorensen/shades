@@ -83,6 +83,15 @@ export default {
         }
       ]
     }
+  },
+  methods: {
+    getState: function () {
+      if (this.$store.state.default.length === 0) this.$store.dispatch('default_action');
+      console.log("this.$store.state.default", this.$store.state.default)
+    },
+  },
+  created: function () {
+    this.getState();
   }
 }
 </script>
